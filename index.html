@@ -200,8 +200,7 @@
                     background-color: rgba(0, 0, 0, 0.665);
                     margin-top: 1em;
                   " />
-                Create high-fidelity 3D Scene from a single image using
-                <strong>Multi-Instance Diffusion Models (MIDI)</strong>.
+                Create high-fidelity 3D Scene from a single image.
               </div>
             </div>
           </div>
@@ -213,7 +212,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-full-width">
-            <img src="./assets/teaser.png" alt="teaser" style="width: 100%" />
+            <img src="./static/images/sing3d.png" alt="teaser" style="width: 100%" />
             <!-- <video
               id="dollyzoom"
               autoplay
@@ -264,29 +263,6 @@
           </div>
         </div>
         <!--/ Abstract. -->
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <div class="has-text-centered">
-              <h2 class="title is-3">How it works</h2>
-            </div>
-            <br />
-            <div class="has-text-justified">
-              Given an input image of a scene, we segment it into multiple parts
-              and use a multi-instance diffusion model conditioned on those
-              images to generate compositional 3D instances of the scene. These
-              3D instances can be directly composed into a scene. The total
-              processing time runs in as little as 40 seconds.
-            </div>
-            <video autoplay muted loop playsinline height="80%">
-              <source src="./assets/how_it_works.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -399,15 +375,19 @@
         <div class="columns is-centered">
           <div class="column is-full-width">
             <br />
-            <img src="./assets/overview.png" class="" alt="" />
-            MIDI is a <b>multi-instance diffusion model</b> to generate
-            compositional 3D instances of the scene from a single image. Based
-            on 3D object generation models, MIDI denoises the latent
-            representations of multiple 3D instances simultaneously using a
-            weight-shared DiT module. The multi-instance attention layers are
-            introduced to learn cross-instance interaction and enable global
-            awareness, while cross-attention layers integrate the information of
-            object images and global scene context.
+            <img src="./static/images/overview.jpg" class="" alt="" />
+            Our approach accomplishes complex scene generation through three collaborative subtasks. 
+            Given a single image as guidance, during the Instance Segmentation and Generation stage, 
+            we first perform object detection and instance segmentation to obtain instance-specific images, 
+            masks, and related information. After that, we focuse on repairing imperfect instance images (e.g., bed) 
+            and generates corresponding multiple 3D assets with generative model. In the Point Cloud Extraction stage, 
+            we estimate camera parameters and depth maps of the input image to extract a complete scene point cloud, 
+            which is further segmented using the previously obtained masks to derive independent point cloud representations 
+            for each instance. Additionally, we sample the generated 3D models into point clouds and implement a 
+            model selection strategy to choose 3D assets that best match the instance images. During layout optimization, 
+            we optimize layout parameters by minimizing the 3D and 2D Chamfer Distance between the optimal model point cloud 
+            (depicted in \textcolor{red}{red}) and the instance point cloud (depicted in \textcolor{green}{green}), 
+            finally constructing a 3D scene that maintains high consistency with the reference image layout.
           </div>
         </div>
       </div>
