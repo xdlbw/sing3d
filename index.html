@@ -1,497 +1,312 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="MIDI is a novel paradigm for compositional 3D scene generation from a single image, extending pre-trained 3D object generation models to multi-instance diffusion models for simultaneous generation of multiple 3D instances." />
-    <meta
-      name="keywords"
-      content="MIDI, Image to 3D Generation, Diffusion Models, 3D Scene Generation" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization
-    </title>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-      rel="stylesheet" />
 
-    <link rel="stylesheet" href="./static/css/bulma.min.css" />
-    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
-    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
-    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
-    <link rel="stylesheet" href="./static/css/index.css" />
-    <!-- <link rel="icon" href="./static/images/favicon.svg" /> -->
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <title>Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
 
-    <!--  Scene Viewer -->
-    <link rel="stylesheet" href="modules/SceneViewer/scene-viewer.css" />
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 
-    <!-- Video Viewer -->
-    <link rel="stylesheet" href="modules/VideoViewer/video-viewer.css" />
-  </head>
-  <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
 
-      <div class="navbar-menu">
-        <div class="navbar-start" style="flex-grow: 1; justify-content: center">
-          <a class="navbar-item" href="https://github.com/huanngzh">
-            <span class="icon">
-              <i class="fas fa-home"></i>
-            </span>
-          </a>
 
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"> More Research </a>
-            <div class="navbar-dropdown">
-              <a
-                class="navbar-item"
-                href="https://huanngzh.github.io/EpiDiff/"
-                target="_blank">
-                EpiDiff
-              </a>
-              <a
-                class="navbar-item"
-                href="https://costwen.github.io/Ouroboros3D/"
-                target="_blank">
-                Ouroboros3D
-              </a>
-              <a
-                class="navbar-item"
-                href="https://huanngzh.github.io/MV-Adapter-Page/"
-                target="_blank">
-                MV-Adapter
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                  </span>
+                  </div>
 
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">
-                MIDI: Multi-Instance Diffusion for Single Image to 3D Scene
-                Generation
-              </h1>
-              <h2 class="title is-3 publication-title" style="color: #008bf5">
-                CVPR 2025
-              </h2>
-              <div class="is-size-5 publication-authors">
-                <a
-                  href="https://scholar.google.com.hk/citations?user=U3VbX6kAAAAJ"
-                  target="_blank"
-                  >Zehuan Huang</a
-                ><sup>1</sup>,
-                <a
-                  href="https://scholar.google.com/citations?user=b7ZJV9oAAAAJ"
-                  target="_blank"
-                  >Yuan-Chen Guo</a
-                ><sup>2†</sup>,
-                <a
-                  href="https://scholar.google.com/citations?user=e8u5LUQAAAAJ"
-                  target="_blank"
-                  >Xingqiao An</a
-                ><sup>3</sup>,
-                <a href="https://yhyang-myron.github.io/" target="_blank"
-                  >Yunhan Yang</a
-                ><sup>4</sup>,
-                <a
-                  href="https://scholar.google.com/citations?user=a7AMvgkAAAAJ"
-                  target="_blank"
-                  >Yangguang Li</a
-                ><sup>2</sup>,
-                <a
-                  href="https://scholar.google.com/citations?user=5TEI1eAAAAAJ"
-                  target="_blank"
-                  >Zi-Xin Zou</a
-                ><sup>2</sup>,<br />
-                <a
-                  href="https://scholar.google.com/citations?user=Dqjnn0gAAAAJ"
-                  target="_blank"
-                  >Ding Liang</a
-                ><sup>2</sup>,
-                <a href="https://xh-liu.github.io/" target="_blank">Xihui Liu</a
-                ><sup>4</sup>,
-                <a href="https://yanpei.me/" target="_blank">Yan-Pei Cao</a
-                ><sup>2✉</sup>,
-                <a href="https://lucassheng.github.io/" target="_blank"
-                  >Lu Sheng</a
-                ><sup>1✉</sup>
-              </div>
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Institution Name<br>Conferance name and year</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
 
-              <div class="is-size-5 publication-authors">
-                <sup>1</sup>Beihang University &nbsp;&nbsp; <sup>2</sup>VAST
-                &nbsp;&nbsp; <sup>3</sup>Tsinghua University &nbsp;&nbsp;
-                <sup>4</sup>The University of Hong Kong <br />
-                <sup>†</sup>Project Lead &nbsp;&nbsp; <sup>✉</sup>Corresponding
-                Author
-              </div>
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
 
-              <div class="column has-text-centered">
-                <div class="publication-links">
-                  <!-- PDF Link. -->
-                  <span class="link-block">
-                    <a
-                      href="https://arxiv.org/abs/2412.03558"
-                      target="_blank"
+                    <!-- Supplementary PDF link -->
+                    <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
-                      <span>Paper</span>
+                      <span>Supplementary</span>
                     </a>
                   </span>
-                  <!-- Video Link. -->
-                  <!-- <span class="link-block">
-                    <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                       class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                          <i class="fab fa-youtube"></i>
-                      </span>
-                      <span>Video</span>
-                    </a>
-                  </span> -->
-                  <!-- Code Link. -->
+
+                  <!-- Github link -->
                   <span class="link-block">
-                    <a
-                      href="https://github.com/VAST-AI-Research/MIDI-3D"
-                      target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span>
-                      <span>Code</span>
-                    </a>
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
                   </span>
-                  <!-- Model Link. -->
-                  <span class="link-block">
-                    <a
-                      href="https://huggingface.co/VAST-AI/MIDI-3D"
-                      target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fa fa-database"></i>
-                      </span>
-                      <span>Model</span>
-                    </a>
-                  </span>
-                  <!-- Demo Link. -->
-                  <span class="link-block">
-                    <a
-                      href="https://huggingface.co/spaces/VAST-AI/MIDI-3D"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="far fa-smile"></i>
-                      </span>
-                      <span>Demo</span>
-                    </a>
-                  </span>
-                </div>
-              </div>
-
-              <div class="is-size-5 publication-authors">
-                <hr
-                  style="
-                    width: 100%;
-                    height: 0.7px;
-                    background-color: rgba(0, 0, 0, 0.665);
-                    margin-top: 1em;
-                  " />
-                Create high-fidelity 3D Scene from a single image using
-                <strong>Multi-Instance Diffusion Models (MIDI)</strong>.
-              </div>
+                  <span>arXiv</span>
+                </a>
+              </span>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="hero teaser">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <img src="./assets/teaser.png" alt="teaser" style="width: 100%" />
-            <!-- <video
-              id="dollyzoom"
-              autoplay
-              controls
-              muted
-              loop
-              playsinline
-              width="100%">
-              <source src="./assets/teaser.mp4" type="video/mp4" />
-            </video> -->
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+            <!-- Youtube embed code here -->
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
 
-    <section class="section">
-      <div class="container is-max-desktop">
-        <!-- Abstract. -->
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
-              <p>
-                This paper introduces MIDI, a novel paradigm for compositional
-                3D scene generation from a single image. Unlike existing methods
-                that rely on reconstruction or retrieval techniques or recent
-                approaches that employ multi-stage object-by-object generation,
-                MIDI extends pre-trained image-to-3D object generation models to
-                multi-instance diffusion models, enabling the simultaneous
-                generation of multiple 3D instances with accurate spatial
-                relationships and high generalizability. At its core, MIDI
-                incorporates a novel multi-instance attention mechanism, that
-                effectively captures inter-object interactions and spatial
-                coherence directly within the generation process, without the
-                need for complex multi-step processes. The method utilizes
-                partial object images and global scene context as inputs,
-                directly modeling object completion during 3D generation. During
-                training, we effectively supervise the interactions between 3D
-                instances using a limited amount of scene-level data, while
-                incorporating single-object data for regularization, thereby
-                maintaining the pre-trained generalization ability. MIDI
-                demonstrates state-of-the-art performance in image-to-scene
-                generation, validated through evaluations on synthetic data,
-                real-world scene data, and stylized scene images generated by
-                text-to-image diffusion models.
-              </p>
-            </div>
-          </div>
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
         </div>
-        <!--/ Abstract. -->
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <div class="has-text-centered">
-              <h2 class="title is-3">How it works</h2>
-            </div>
-            <br />
-            <div class="has-text-justified">
-              Given an input image of a scene, we segment it into multiple parts
-              and use a multi-instance diffusion model conditioned on those
-              images to generate compositional 3D instances of the scene. These
-              3D instances can be directly composed into a scene. The total
-              processing time runs in as little as 40 seconds.
-            </div>
-            <video autoplay muted loop playsinline height="80%">
-              <source src="./assets/how_it_works.mp4" type="video/mp4" />
-            </video>
-          </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
 
-    <!-- Scripts Start -->
-    <script type="module">
-      import { ViewerModule } from "./modules/SceneViewer/scene-viewer.js";
 
-      const viewer = new ViewerModule(
-        ".scene-viewer",
-        [
-          "texed_0001",
-          "texed_0002",
-          "texed_0003",
-          "texed_0004",
-          "texed_0005",
-          "texed_0006",
-          "texed_0007",
-          "texed_0008",
-          "texed_0009",
-          "texed_0010",
-          "texed_0011",
-        ],
-        "https://huggingface.co/datasets/huanngzh/midi-page-assets/resolve/main/3d_models",
-        "assets/images"
-      );
-      viewer.init();
-    </script>
-    <!-- Scripts End -->
 
-    <section class="section" style="padding-top: 0">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <div class="has-text-centered">
-              <h2 class="title is-3">Interactive Results</h2>
-            </div>
-            <br />
-            <div>
-              Texture of the 3D scenes is generated using
-              <a href="https://github.com/huanngzh/MV-Adapter" target="_blank"
-                >MV-Adapter</a
-              >.
-            </div>
-            <div class="scene-viewer">
-              <!-- Scene Viewer -->
-              <div id="loading-overlay">
-                <div class="loading-spinner"></div>
-              </div>
-              <div id="viewer-container"></div>
-              <div id="button-block"></div>
-              <div class="swiper">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-wrapper" id="image-slider"></div>
-              </div>
-            </div>
-          </div>
+
+
+
+<!-- Paper poster -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section>
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</footer>
 
-    <script type="module">
-      import { VideoViewerModule } from "./modules/VideoViewer/video-viewer.js";
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
-      const videoViewer = new VideoViewerModule(
-        ".video-viewer",
-        [
-          "the-breakfast-room",
-          "complete-kitchen",
-          "3ffabcbad5894c6e8f03f54453a1e2e9_i1_3",
-          "ffd98024-7200-429e-8b9a-1234a5937826-LivingRoom-360",
-          "1e649cc84c9043b69e2367b7d5aeecf2_i1_0",
-          "ff7ccf2d-0449-4367-aecc-3514af04afdd-Bedroom-11127",
-          "4e796cd1c4594f9fb07bf8b48edf2dc2_i2_2",
-          "the-wooden-staircase",
-        ],
-        "assets/videos",
-        "assets/images"
-      );
-      videoViewer.init();
-    </script>
+    <!-- End of Statcounter Code -->
 
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <div class="has-text-centered">
-              <h2 class="title is-3">Comparisons to Other Methods</h2>
-            </div>
-            <br />
-            <div class="video-viewer">
-              <div id="video-container"></div>
-              <div class="swiper">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-wrapper" id="image-slider"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="has-text-centered">
-          <h2 class="title is-3">Method Overview</h2>
-        </div>
-        <br />
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <br />
-            <img src="./assets/overview.png" class="" alt="" />
-            MIDI is a <b>multi-instance diffusion model</b> to generate
-            compositional 3D instances of the scene from a single image. Based
-            on 3D object generation models, MIDI denoises the latent
-            representations of multiple 3D instances simultaneously using a
-            weight-shared DiT module. The multi-instance attention layers are
-            introduced to learn cross-instance interaction and enable global
-            awareness, while cross-attention layers integrate the information of
-            object images and global scene context.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="BibTeX">
-      <div class="container is-max-desktop content">
-        <div class="has-text-centered">
-          <h2 class="title">BibTeX</h2>
-        </div>
-        <div
-          class="columns is-centered has-text-centered"
-          style="padding-bottom: 1.5rem">
-          <div class="column is-four-fifths">
-            <div class="content has-text-justified">
-              <pre><code>@inproceedings{huang2025midi,
-  title={Midi: Multi-instance diffusion for single image to 3d scene generation},
-  author={Huang, Zehuan and Guo, Yuan-Chen and An, Xingqiao and Yang, Yunhan and Li, Yangguang and Zou, Zi-Xin and Liang, Ding and Liu, Xihui and Cao, Yan-Pei and Sheng, Lu},
-  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
-  pages={23646--23657},
-  year={2025}
-}</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="content has-text-centered">
-          <a class="icon-link" href="https://arxiv.org/abs/2412.03558">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-          <a
-            class="icon-link"
-            href="https://github.com/huanngzh"
-            class="external-link"
-            disabled>
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="content">
-              <p style="text-align: center">
-                Source code of this page can be found at
-                <a href="https://github.com/huanngzh/MIDI-Page" target="_blank"
-                  >MIDI-Page</a
-                >. The website template is borrowed from
-                <a href="https://nerfies.github.io/" target="_blank">Nerfies</a
-                >.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
-</html>
+  </html>
