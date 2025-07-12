@@ -93,7 +93,16 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">
+              <h1 class="title is-1 publication-title" style="
+                  font-size: clamp(1.8rem, 4vw, 2.5rem); /* 调整字体大小范围，控制换行 */
+                  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffd1ff);
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  color: transparent; /* 使文字透明，显示渐变背景 */
+                  line-height: 1.2; /* 调整行高避免过宽 */
+                  max-width: 900px; /* 限制最大宽度辅助换行控制 */
+                  margin: 0 auto; /* 居中显示 */
+                ">
                 Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization
               </h1>
               <div class="is-size-5 publication-authors">
@@ -372,7 +381,7 @@
       </div>
     </section>
 
-    <section class="section" id="BibTeX">
+    <!-- <section class="section" id="BibTeX">
       <div class="container is-max-desktop content">
         <div class="has-text-centered">
           <h2 class="title">BibTeX</h2>
@@ -393,17 +402,17 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
-          <a class="icon-link" href="https://arxiv.org/abs/2412.03558">
+          <a class="icon-link" href="">
             <i class="fas fa-file-pdf"></i>
           </a>
           <a
             class="icon-link"
-            href="https://github.com/huanngzh"
+            href="https://github.com/xdlbw"
             class="external-link"
             disabled>
             <i class="fab fa-github"></i>
@@ -414,8 +423,8 @@
             <div class="content">
               <p style="text-align: center">
                 Source code of this page can be found at
-                <a href="https://github.com/huanngzh/MIDI-Page" target="_blank"
-                  >MIDI-Page</a
+                <a href="https://github.com/xdlbw/sing3d" target="_blank"
+                  >sing3d</a
                 >. The website template is borrowed from
                 <a href="https://nerfies.github.io/" target="_blank">Nerfies</a
                 >.
