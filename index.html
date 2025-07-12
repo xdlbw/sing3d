@@ -270,12 +270,6 @@
               <h2 class="title is-3">Interactive Results</h2>
             </div>
             <br />
-            <div>
-              Texture of the 3D scenes is generated using
-              <a href="https://github.com/huanngzh/MV-Adapter" target="_blank"
-                >MV-Adapter</a
-              >.
-            </div>
             <div class="scene-viewer">
               <!-- Scene Viewer -->
               <div id="loading-overlay">
@@ -283,48 +277,6 @@
               </div>
               <div id="viewer-container"></div>
               <div id="button-block"></div>
-              <div class="swiper">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-wrapper" id="image-slider"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script type="module">
-      import { VideoViewerModule } from "./modules/VideoViewer/video-viewer.js";
-
-      const videoViewer = new VideoViewerModule(
-        ".video-viewer",
-        [
-          "the-breakfast-room",
-          "complete-kitchen",
-          "3ffabcbad5894c6e8f03f54453a1e2e9_i1_3",
-          "ffd98024-7200-429e-8b9a-1234a5937826-LivingRoom-360",
-          "1e649cc84c9043b69e2367b7d5aeecf2_i1_0",
-          "ff7ccf2d-0449-4367-aecc-3514af04afdd-Bedroom-11127",
-          "4e796cd1c4594f9fb07bf8b48edf2dc2_i2_2",
-          "the-wooden-staircase",
-        ],
-        "assets/videos",
-        "assets/images"
-      );
-      videoViewer.init();
-    </script>
-
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <div class="has-text-centered">
-              <h2 class="title is-3">Comparisons to Other Methods</h2>
-            </div>
-            <br />
-            <div class="video-viewer">
-              <div id="video-container"></div>
               <div class="swiper">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
