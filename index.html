@@ -414,7 +414,7 @@
             for each instance. Additionally, we sample the generated 3D models into point clouds and implement a 
             model selection strategy to choose 3D assets that best match the instance images. During layout optimization, 
             we optimize layout parameters by minimizing the 3D and 2D Chamfer Distance between the optimal model point cloud 
-            (depicted in \textcolor{red}{red}) and the instance point cloud (depicted in \textcolor{green}{green}), 
+            (depicted in <span style="color: red;">red</span>) and the instance point cloud (depicted in <span style="color: green;">green</span>), 
             finally constructing a 3D scene that maintains high consistency with the reference image layout.
           </div>
         </div>
@@ -506,17 +506,21 @@
         container.appendChild(renderer.domElement);
         
         // 添加环境光
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
         scene.add(ambientLight);
         
         // 添加方向光
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight.position.set(5, 5, 5);
-        scene.add(directionalLight);
-        
-        // 添加辅助网格
-        const gridHelper = new THREE.GridHelper(10, 10, 0xcccccc, 0xeeeeee);
-        scene.add(gridHelper);
+        const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight1.position.set(5, 5, 5);
+        scene.add(directionalLight1);
+
+        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight2.position.set(-5, 5, 5);
+        scene.add(directionalLight2);
+
+        const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight3.position.set(5, -5, 5);
+        scene.add(directionalLight3);
         
         // 加载3D模型 - 使用GLTF加载器
         const loader = new THREE.GLTFLoader();
