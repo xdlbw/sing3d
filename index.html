@@ -55,35 +55,11 @@
 
       <div class="navbar-menu">
         <div class="navbar-start" style="flex-grow: 1; justify-content: center">
-          <a class="navbar-item" href="https://github.com/huanngzh">
+          <a class="navbar-item" href="https://github.com/xdlbw">
             <span class="icon">
               <i class="fas fa-home"></i>
             </span>
           </a>
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"> More Research </a>
-            <div class="navbar-dropdown">
-              <a
-                class="navbar-item"
-                href="https://huanngzh.github.io/EpiDiff/"
-                target="_blank">
-                EpiDiff
-              </a>
-              <a
-                class="navbar-item"
-                href="https://costwen.github.io/Ouroboros3D/"
-                target="_blank">
-                Ouroboros3D
-              </a>
-              <a
-                class="navbar-item"
-                href="https://huanngzh.github.io/MV-Adapter-Page/"
-                target="_blank">
-                MV-Adapter
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </nav>
@@ -94,14 +70,15 @@
           <div class="columns is-centered">
             <div class="column has-text-centered">
               <h1 class="title is-1 publication-title" style="
-                  font-size: clamp(1.8rem, 4vw, 2.5rem); /* 调整字体大小范围，控制换行 */
-                  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffd1ff);
+                  font-size: clamp(1.9rem, 4.2vw, 2.6rem); /* 微调字号适配三行布局 */
+                  background: linear-gradient(135deg, #e91e63, #d81b60, #9c27b0, #7b1fa2);
                   -webkit-background-clip: text;
                   background-clip: text;
-                  color: transparent; /* 使文字透明，显示渐变背景 */
-                  line-height: 1.2; /* 调整行高避免过宽 */
-                  max-width: 900px; /* 限制最大宽度辅助换行控制 */
-                  margin: 0 auto; /* 居中显示 */
+                  color: transparent;
+                  line-height: 1.25;
+                  max-width: 920px; /* 扩大最大宽度避免挤压换行 */
+                  margin: 0 auto;
+                  white-space: nowrap; /* 防止自动拆分单词 */
                 ">
                 Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization
               </h1>
