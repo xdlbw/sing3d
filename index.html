@@ -34,40 +34,8 @@
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-    <!--  Scene Viewer -->
-    <link rel="stylesheet" href="modules/SceneViewer/scene-viewer.css" />
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 
-    <!-- Video Viewer -->
-    <link rel="stylesheet" href="modules/VideoViewer/video-viewer.css" />
-
-    <style>
-      .model-card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-      .model-image {
-        height: 200px;
-        object-fit: cover;
-      }
-      .model-viewer {
-        height: 300px;
-        width: 100%;
-        background-color: #f5f5f5;
-        border-radius: 4px;
-      }
-      .models-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-      @media (max-width: 768px) {
-        .models-container {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -118,12 +86,12 @@
                 <a
                   target="_blank"
                   >Xiang Tang</a
-                ><sup>1</sup>,
+                ><sup>1,2</sup>,
                 <a
                   href="https://scholar.google.com/citations?user=4LsZhDgAAAAJ"
                   target="_blank"
                   >Xiaopeng Fan</a
-                ><sup>2</sup>,
+                ><sup>2,3</sup>,
                 <a
                   href="https://scholar.google.com/citations?user=6zC1cbgAAAAJ"
                   target="_blank"
@@ -132,8 +100,8 @@
               </div>
 
               <div class="is-size-5 publication-authors">
-                <sup>1</sup>Harbin Institute of Technology, Shenzhen &nbsp;&nbsp; <sup>2</sup>Harbin Institute of Technology
-                &nbsp;&nbsp; <sup>3</sup>Pengcheng Laboratory <br />
+                <sup>1</sup>Harbin Institute of Technology, Shenzhen &nbsp;&nbsp; <sup>2</sup>Pengcheng Laboratory
+                &nbsp;&nbsp; <sup>3</sup> Harbin Institute of Technology <br />
                 <sup>✉</sup>Corresponding
                 Author
               </div>
@@ -197,7 +165,7 @@
                     background-color: rgba(0, 0, 0, 0.665);
                     margin-top: 1em;
                   " />
-                Create high-fidelity 3D Scene from a single image.
+                 A single image-guided model generation and layout optimization framework to generate the 3D scene with precise textured meshes and spatial details.
               </div>
             </div>
           </div>
@@ -211,7 +179,7 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-full-width">
             <img src="./static/images/sing3d.png" alt="teaser" style="width: 100%" />
-            <video
+            <!-- <video
               id="dollyzoom"
               autoplay
               controls
@@ -220,11 +188,189 @@
               playsinline
               width="100%">
               <source src="./static/videos/video.mp4" type="video/mp4" />
-            </video>
+            </video> -->
           </div>
         </div>
       </div>
     </section>
+
+
+
+    <div class="container is-80-percent mx-auto">
+      <p class="title is-3 mt-5 has-text-centered"> Interactive Results </p>
+    
+      <!-- 第一组：图片行 + 模型行 -->
+      <div class="mb-6">
+        <!-- 第一行图片（可点击放大） -->
+        <div class="level mb-2">
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test1.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test3.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test11.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test12.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
+          </div>
+        </div>
+        <!-- 第一行模型 -->
+        <div class="level">
+          <div class="level-item">
+            <model-viewer src="./static/models/model1.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model3.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model11.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model12.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+        </div>
+      </div>
+    
+      <!-- 第二组：图片行 + 模型行 -->
+      <div class="mb-6">
+        <!-- 第二行图片（可点击放大） -->
+        <div class="level mb-2">
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test2.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model2 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test10.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model10 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test13.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model13 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test8.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model8 preview">
+          </div>
+        </div>
+        <!-- 第二行模型 -->
+        <div class="level">
+          <div class="level-item">
+            <model-viewer src="./static/models/model2.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model10.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model13.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model8.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+        </div>
+      </div>
+    
+      <!-- 第三组：图片行 + 模型行 -->
+      <div class="mb-6">
+        <!-- 第三行图片（可点击放大） -->
+        <div class="level mb-2">
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test7.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model7 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test4.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model4 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test5.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model5 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/test9.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model9 preview">
+          </div>
+        </div>
+        <!-- 第三行模型 -->
+        <div class="level">
+          <div class="level-item">
+            <model-viewer src="./static/models/model7.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model4.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model5.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/model9.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+        </div>
+      </div>
+    
+      <!-- 图片放大弹窗（默认隐藏） -->
+      <div id="imageModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center;">
+        <span class="close-btn" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
+        <img id="modalImage" style="max-width: 90%; max-height: 90%; object-fit: contain;" alt="Enlarged image">
+      </div>
+    </div>
+    
+    <style>
+    .container.is-80-percent {
+      width: 80%;
+      max-width: 80%;
+    }
+    
+    /* 模型间距优化 */
+    .level {
+      gap: 8px; /* 减小模型之间的间距 */
+    }
+    .level-item {
+      margin: 0; /* 移除默认外边距 */
+      flex: 1; /* 让每个项目平均分配空间，增大展示区 */
+      max-width: none; /* 取消最大宽度限制，让模型可以更宽 */
+    }
+    
+    /* 图片样式 */
+    .level-item img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* 模型查看器样式优化 */
+    model-viewer {
+      width: 100% !important; /* 强制占满容器宽度 */
+      height: 400px !important; /* 适当增加模型高度 */
+    }
+    </style>
+    
+    <script>
+    // 获取弹窗元素
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-btn');
+    const zoomableImages = document.querySelectorAll('.zoomable-img');
+    
+    // 为每张可点击图片添加点击事件
+    zoomableImages.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex'; // 显示弹窗
+        modalImg.src = img.src; // 设置弹窗图片源为点击的图片
+        modalImg.alt = img.alt; // 同步alt属性
+      });
+    });
+    
+    // 关闭弹窗
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+    
+    // 点击弹窗外部关闭弹窗
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // 按ESC键关闭弹窗
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+      }
+    });
+    </script>
 
     <!-- 摘要部分 -->
     <section class="section">
@@ -261,135 +407,6 @@
           </div>
         </div>
         <!--/ Abstract. -->
-      </div>
-    </section>
-
-    <!-- 新增的3D模型与2D图像展示部分 -->
-    <section class="section">
-      <div class="container" style="max-width: 1600px; width: 95%;">
-        <div class="has-text-centered">
-          <h2 class="title is-3">Interactive Results</h2>
-          <p class="subtitle is-5">A collection of 3D models generated from corresponding 2D images</p>
-        </div>
-        
-        <!-- 第一行 -->
-        <div class="columns is-desktop is-multiline" style="margin-bottom: 2rem;">
-          <!-- 模型 1 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <!-- 256×256px图片，位于左上角 -->
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test1.png" alt="2D Image of Model 1" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <!-- 3D模型查看器 -->
-                <div id="model-viewer-1" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 模型 2 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test2.png" alt="2D Image of Model 2" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-2" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 模型 3 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test3.png" alt="2D Image of Model 3" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-3" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 第二行 -->
-        <div class="columns is-desktop is-multiline" style="margin-bottom: 2rem;">
-          <!-- 模型 4 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test4.png" alt="2D Image of Model 5" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-4" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 模型 5 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test5.png" alt="2D Image of Model 6" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-5" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 模型 6 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test6.png" alt="2D Image of Model 7" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-6" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 第三行 -->
-        <div class="columns is-desktop is-multiline">
-          <!-- 模型 7 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test7.png" alt="2D Image of Model 8" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-7" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 模型 8 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test8.png" alt="2D Image of Model 9" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-8" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 模型 9 -->
-          <div class="column is-4">
-            <div class="card model-card" style="height: 100%;">
-              <div class="card-content" style="flex-grow: 1; position: relative; padding: 1.5rem; min-height: 400px;">
-                <div style="position: absolute; top: 1rem; left: 1rem; z-index: 10; width: 128px; height: 128px; border: 2px solid white; border-radius: 4px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
-                  <img src="./static/assets/test9.png" alt="2D Image of Model 10" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div id="model-viewer-9" class="model-viewer" style="width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -476,145 +493,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      // 初始化所有3D模型查看器的函数
-      function initModelViewers() {
-        // 循环初始化10个模型查看器
-        for (let i = 1; i <= 9; i++) {
-          initModelViewer(i);
-        }
-      }
-      
-      // 初始化单个模型查看器
-      function initModelViewer(modelId) {
-        // 获取容器元素
-        const container = document.getElementById(`model-viewer-${modelId}`);
-        if (!container) return;
-        
-        // 创建场景
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xf5f5f5);
-        
-        // 创建相机
-        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-        camera.position.z = 5;
-        
-        // 创建渲染器
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
-        
-        // 添加环境光
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-        scene.add(ambientLight);
-        
-        // 添加方向光
-        const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight1.position.set(5, 5, 5);
-        scene.add(directionalLight1);
-
-        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight2.position.set(-5, 5, 5);
-        scene.add(directionalLight2);
-
-        const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight3.position.set(5, -5, 5);
-        scene.add(directionalLight3);
-        
-        // 加载3D模型 - 使用GLTF加载器
-        const loader = new THREE.GLTFLoader();
-        
-        // 这里使用一个示例模型，实际应用中请替换为您的模型路径
-        const modelPath = `./static/models/model${modelId}.glb`;
-        
-        loader.load(
-          modelPath,
-          function(gltf) {
-            const model = gltf.scene;
-            
-            // 调整模型大小和位置
-            model.scale.set(1, 1, 1);
-            model.position.y = 0;
-            
-            // 计算模型的包围盒以自动居中
-            const box = new THREE.Box3().setFromObject(model);
-            const center = box.getCenter(new THREE.Vector3());
-            model.position.sub(center); // 居中模型
-            
-            scene.add(model);
-          },
-          function(xhr) {
-            // 加载进度
-            console.log(`Model ${modelId} loaded: ${(xhr.loaded / xhr.total * 100)}%`);
-          },
-          function(error) {
-            // 加载错误处理
-            console.error(`Error loading model ${modelId}:`, error);
-            
-            // 如果模型加载失败，显示一个简单的几何体作为替代
-            const geometry = new THREE.TorusKnotGeometry(1, 0.3, 100, 16);
-            const material = new THREE.MeshStandardMaterial({ color: 0x9c27b0 });
-            const torusKnot = new THREE.Mesh(geometry, material);
-            scene.add(torusKnot);
-          }
-        );
-        
-        // 添加轨道控制器以允许用户交互
-        const controls = new THREE.OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.25;
-        controls.enableZoom = true;
-        
-        // 处理窗口大小变化
-        function onWindowResize() {
-          camera.aspect = container.clientWidth / container.clientHeight;
-          camera.updateProjectionMatrix();
-          renderer.setSize(container.clientWidth, container.clientHeight);
-        }
-        
-        window.addEventListener('resize', onWindowResize);
-        
-        // 动画循环
-        function animate() {
-          requestAnimationFrame(animate);
-          controls.update();
-          renderer.render(scene, camera);
-        }
-        
-        animate();
-        
-        // 当容器大小变化时更新渲染器大小
-        const resizeObserver = new ResizeObserver(entries => {
-          for (let entry of entries) {
-            const { width, height } = entry.contentRect;
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
-            renderer.setSize(width, height);
-          }
-        });
-        
-        resizeObserver.observe(container);
-      }
-      
-      // 当页面加载完成后初始化模型查看器
-      window.addEventListener('load', initModelViewers);
-      
-      // 初始化导航菜单
-      document.addEventListener('DOMContentLoaded', () => {
-        // 导航菜单交互
-        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-        if ($navbarBurgers.length > 0) {
-          $navbarBurgers.forEach(el => {
-            el.addEventListener('click', () => {
-              const target = el.dataset.target;
-              const $target = document.getElementById(target);
-              el.classList.toggle('is-active');
-              $target.classList.toggle('is-active');
-            });
-          });
-        }
-      });
-    </script>
   </body>
 </html>
