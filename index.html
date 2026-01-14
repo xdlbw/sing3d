@@ -68,7 +68,13 @@
                 class="navbar-item"
                 href="https://arxiv.org/abs/2504.11734"
                 target="_blank">
-                3D Generation, Survey 
+                Recent Advances in 3D Object and Scene Generation: A Survey
+              </a>
+              <a
+                class="navbar-item"
+                href="https://arxiv.org/abs/2509.23607"
+                target="_blank">
+                ZeroScene
               </a>
             </div>
           </div>
@@ -82,18 +88,21 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title" style="
-                font-size: clamp(1.8rem, 4vw, 2.5rem); /* 调整字体大小范围，控制换行 */
+
+              <!-- 标题 -->
+              <h1 class="title is-0 publication-title" style="
+                font-size: clamp(2.5rem, 1.6vw, 4rem); /* 调整字体大小范围，控制换行 */
                 background: linear-gradient(45deg, #7b1fa2, #9c27b0, #e91e63, #ff9a9e);
                 -webkit-background-clip: text;
                 background-clip: text;
                 color: transparent; /* 使文字透明，显示渐变背景 */
                 line-height: 1.2; /* 调整行高避免过宽 */
-                max-width: 900px; /* 限制最大宽度辅助换行控制 */
+                max-width: 1200px; /* 限制最大宽度辅助换行控制 */
                 margin: 0 auto; /* 居中显示 */
               ">
-                Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization
+                  Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization
               </h1>
+
               <div class="is-size-5 publication-authors">
                 <a
                   target="_blank"
@@ -388,7 +397,7 @@
     <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
+          <div class="column is-full-width">
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p>
@@ -430,7 +439,7 @@
         </div>
         <br />
         <div class="columns is-centered">
-          <div class="column is-full-width">
+          <div class="column is-full-width has-text-justified">
             <br />
             <img src="./static/images/overview.jpg" class="" alt="" />
             Our approach accomplishes complex scene generation through three collaborative subtasks. 
@@ -438,10 +447,10 @@
             we first perform object detection and instance segmentation to obtain instance-specific images, 
             masks, and related information. After that, we focuse on repairing imperfect instance images (e.g., bed) 
             and generates corresponding multiple 3D assets with generative model. In the Point Cloud Extraction stage, 
-            we estimate camera parameters and depth maps of the input image to extract a complete scene point cloud, 
-            which is further segmented using the previously obtained masks to derive independent point cloud representations 
-            for each instance. Additionally, we sample the generated 3D models into point clouds and implement a 
-            model selection strategy to choose 3D assets that best match the instance images. During layout optimization, 
+            we estimate the depth map, camera parameters, and complete scene point cloud of the input image, 
+            and perform segmentation with the previously obtained masks to derive an independent point cloud representation for each instance. 
+            Additionally, we sample the generated 3D models into point clouds and implement a model selection strategy 
+            to choose 3D assets that best match the instance images. During layout optimization, 
             we optimize layout parameters by minimizing the 3D and 2D Chamfer Distance between the optimal model point cloud 
             (depicted in <span style="color: red;">red</span>) and the instance point cloud (depicted in <span style="color: green;">green</span>), 
             finally constructing a 3D scene that maintains high consistency with the reference image layout.
@@ -461,8 +470,8 @@
           style="padding-bottom: 1.5rem">
           <div class="column is-four-fifths">
             <div class="content has-text-justified">
-              <pre><code>@article{tang2025geometrictexturalconsistency3d,
-  title={Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization},
+              <pre><code>@article{tang2025towards,
+  title={Towards geometric and textural consistency 3d scene generation via single image-guided model generation and layout optimization},
   author={Tang, Xiang and Li, Ruotong and Fan, Xiaopeng},
   journal={arXiv preprint arXiv:2507.14841},
   year={2025}
