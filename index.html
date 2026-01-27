@@ -216,119 +216,262 @@
     </section>
 
 
-    
-
     <div class="container is-80-percent mx-auto">
       <p class="title is-3 mt-5 has-text-centered"> Interactive Results </p>
     
-      <!-- 第一组：图片行 + 模型行 -->
-      <div class="mb-6">
-        <!-- 第一行图片（可点击放大） -->
+      <!-- ==================== 第一组 (默认显示) ==================== -->
+      <div class="mb-6 result-group">
+        <!-- 第一行图片 -->
         <div class="level mb-2">
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test1.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
+            <img src="./static/assets/3df-2.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test3.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
+            <img src="./static/assets/3df-3.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test11.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
+            <img src="./static/assets/3df-4.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test12.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
+            <img src="./static/assets/vlm-5.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
           </div>
         </div>
         <!-- 第一行模型 -->
         <div class="level">
           <div class="level-item">
-            <model-viewer src="./static/models/model1.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-2.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="2" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model3.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-3.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="3.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model11.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-4.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model12.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/vlm-5.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1" camera-controls touch-action="pan-y"></model-viewer>
           </div>
         </div>
       </div>
     
-      <!-- 第二组：图片行 + 模型行 -->
-      <div class="mb-6">
-        <!-- 第二行图片（可点击放大） -->
+    
+      <!-- ==================== 第二组 (默认显示) ==================== -->
+      <div class="mb-6 result-group">
         <div class="level mb-2">
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test2.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model2 preview">
+            <img src="./static/assets/3df-8.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test10.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model10 preview">
+            <img src="./static/assets/real-1.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test13.jpg" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model13 preview">
+            <img src="./static/assets/vlm-1.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test8.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model8 preview">
+            <img src="./static/assets/3df-1.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
           </div>
         </div>
-        <!-- 第二行模型 -->
         <div class="level">
           <div class="level-item">
-            <model-viewer src="./static/models/model2.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-8.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model10.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/real-1.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model13.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/vlm-1.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model8.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-1.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="3.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
         </div>
       </div>
     
-      <!-- 第三组：图片行 + 模型行 -->
-      <div class="mb-6">
-        <!-- 第三行图片（可点击放大） -->
+      <!-- ==================== 第三组 (初始隐藏 style="display: none;") ==================== -->
+      <div class="mb-6 result-group" style="display: none;">
         <div class="level mb-2">
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test7.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model7 preview">
+            <img src="./static/assets/3df-5.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test4.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model4 preview">
+            <img src="./static/assets/3df-6.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test5.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model5 preview">
+            <img src="./static/assets/3df-7.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
           </div>
           <div class="level-item has-text-centered">
-            <img src="./static/assets/test9.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model9 preview">
+            <img src="./static/assets/real-5.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
           </div>
         </div>
-        <!-- 第三行模型 -->
         <div class="level">
           <div class="level-item">
-            <model-viewer src="./static/models/model7.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-5.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model4.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-6.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model5.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/3df-7.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
           <div class="level-item">
-            <model-viewer src="./static/models/model9.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer src="./static/models/real-5.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
           </div>
         </div>
       </div>
     
-      <!-- 图片放大弹窗（默认隐藏） -->
+      <!-- ==================== 第四组 (初始隐藏) ==================== -->
+      <div class="mb-6 result-group" style="display: none;">
+        <div class="level mb-2">
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/real-2.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/real-3.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/real-4.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/real-8.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
+          </div>
+        </div>
+        <div class="level">
+          <div class="level-item">
+            <model-viewer src="./static/models/real-2.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/real-3.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/real-4.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/real-8.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+        </div>
+      </div>
+    
+      <!-- ==================== 第五组 (初始隐藏) ==================== -->
+      <div class="mb-6 result-group" style="display: none;">
+        <div class="level mb-2">
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/real-6.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/real-7.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/vlm-2.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/vlm-3.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
+          </div>
+        </div>
+        <div class="level">
+          <div class="level-item">
+            <model-viewer src="./static/models/real-6.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/real-7.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/vlm-2.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/vlm-3.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ==================== 第六组 (初始隐藏) ==================== -->
+      <div class="mb-6 result-group" style="display: none;">
+        <div class="level mb-2">
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/vlm-4.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model1 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/vlm-6.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model3 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/vlm-7.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model11 preview">
+          </div>
+          <div class="level-item has-text-centered">
+            <img src="./static/assets/vlm-8.png" class="zoomable-img" style="width: 100%; max-height: 150px; object-fit: contain; cursor: pointer;" alt="model12 preview">
+          </div>
+        </div>
+        <div class="level">
+          <div class="level-item">
+            <model-viewer src="./static/models/vlm-4.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/vlm-6.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/vlm-7.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" exposure="1.5" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+          <div class="level-item">
+            <model-viewer src="./static/models/vlm-8.glb" style="width: 100%; height: 300px;" auto-rotate shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Show More Button -->
+      <div class="has-text-centered mb-6">
+        <button id="showMoreBtn" class="button is-info is-medium is-rounded">Show More</button>
+      </div>
+    
+      <!-- 图片放大弹窗 (保持原样) -->
       <div id="imageModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center;">
         <span class="close-btn" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
         <img id="modalImage" style="max-width: 90%; max-height: 90%; object-fit: contain;" alt="Enlarged image">
       </div>
     </div>
+    
+    <script>
+      // Show More Button Logic
+      document.addEventListener('DOMContentLoaded', function() {
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        
+        showMoreBtn.addEventListener('click', function() {
+          // 查找当前所有仍然隐藏的 result-group
+          const hiddenGroups = document.querySelectorAll('.result-group[style*="display: none"]');
+          
+          // 每次点击显示2个
+          const itemsToShow = 2;
+          
+          for (let i = 0; i < itemsToShow && i < hiddenGroups.length; i++) {
+            hiddenGroups[i].style.display = 'block';
+          }
+          
+          // 重新检查剩余隐藏的数量，如果没有了，就隐藏按钮
+          const remainingHidden = document.querySelectorAll('.result-group[style*="display: none"]');
+          if (remainingHidden.length === 0) {
+            showMoreBtn.style.display = 'none';
+          }
+        });
+    
+        // Image Zoom Logic (保持你原有的逻辑，如果需要的话可以整合在这里)
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeBtn = document.getElementsByClassName("close-btn")[0];
+    
+        document.querySelectorAll('.zoomable-img').forEach(img => {
+          img.addEventListener('click', function() {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+          });
+        });
+    
+        closeBtn.onclick = function() {
+          modal.style.display = "none";
+        }
+    
+        modal.onclick = function(e) {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        }
+      });
+    </script>
     
     <style>
     .container.is-80-percent {

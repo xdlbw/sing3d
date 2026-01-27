@@ -13,8 +13,8 @@
 ### 📰 Citation
 
 ```
-@article{tang2025geometrictexturalconsistency3d,
-  title={Towards Geometric and Textural Consistency 3D Scene Generation via Single Image-guided Model Generation and Layout Optimization},
+@article{tang2025towards,
+  title={Towards geometric and textural consistency 3d scene generation via single image-guided model generation and layout optimization},
   author={Tang, Xiang and Li, Ruotong and Fan, Xiaopeng},
   journal={arXiv preprint arXiv:2507.14841},
   year={2025}
